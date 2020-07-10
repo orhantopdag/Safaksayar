@@ -19,7 +19,8 @@ namespace Safaksayar.ViewModels
         public ObservableCollection<Bilgiler> Items
         {
             get { return bilgiler; }
-            set { bilgiler = value; OnPropertyChanged(); }
+            set { bilgiler = value; OnPropertyChanged();
+            }
         }
         public Command LoadItemsCommand { get; set; }
 
