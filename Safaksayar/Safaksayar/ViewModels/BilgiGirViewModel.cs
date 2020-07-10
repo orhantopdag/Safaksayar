@@ -58,6 +58,14 @@ namespace Safaksayar.ViewModels
             set { Bg.Askerlikyeri = value; OnPropertyChanged(); }
         }
 
+        public DateTime Sulus
+        {
+            get { return Bg.SulusTarih.DateTime; }
+            set { Bg.SulusTarih = value;OnPropertyChanged();
+              
+                
+            }
+        }
         public string Memleket
         {
 
@@ -114,6 +122,7 @@ namespace Safaksayar.ViewModels
                 if (value!=null)
                 {
                     Bg.Askerliksure = value.sayisi; OnPropertyChanged();
+
                 }
             }
                
@@ -124,9 +133,9 @@ namespace Safaksayar.ViewModels
             {
                 App.RealmContext.Write(() =>
                 {
-                    Bilgiler asd = new Bilgiler();
-                    asd.Memleket = " ";
-                    App.RealmContext.Add(asd);
+                    Bg.NihaiTarih = Sulus.AddMonths(Bg.Askerliksure).AddDays(Bg.Alinanceza).AddDays(-Bg.Erkenterhis).AddDays(-Bg.Izinhak).AddDays(Bg.Kullanilanizin).AddDays(-Bg.Yolizin);
+                   
+                    App.RealmContext.Add(this.Bg);
                 });
 
             }

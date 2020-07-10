@@ -9,37 +9,37 @@ using Safaksayar.Models;
 using Safaksayar.Views;
 using System.Threading;
 using Realms;
+using System.Linq;
 
 namespace Safaksayar.ViewModels
 {
     public class ItemsViewModel :BaseViewModel
     {
 
-        private ObservableCollection<Bilgiler> bilgiler;
-        public ObservableCollection<Bilgiler> Items
+        private Bilgiler bilgiler;
+        public Bilgiler Bilgiler
         {
             get { return bilgiler; }
             set { bilgiler = value; OnPropertyChanged();
             }
         }
+      
+
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Bilgiler>();
+           
           
 
             //var realm = Realm.GetInstance();
            
            
-            var items = App.RealmContext.All<Bilgiler>();
+            Bilgiler = App.RealmContext.All<Bilgiler>().FirstOrDefault();
 
-            foreach (var item in items)
-            {
-                Items.Add(item);
-            }
-            LoadItemsCommand = new Command(async () =>  ExecuteLoadItemsCommand());
+           
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                 dt = DateTime.Now;
@@ -47,38 +47,38 @@ namespace Safaksayar.ViewModels
                 return true;
             });
 
-            MessagingCenter.Subscribe<NewItemPage, Bilgiler>(this, "AddItem", async (obj, item) =>
-            {
-                var newItem = item as Bilgiler;
-                Items.Add(newItem);
-                //realm.Add(new Bilgiler { ad = item.ad, memleket = item.memleket });
-                App.RealmContext.Write(() =>
-                {
-                    var B = new Bilgiler();
-                    B.Ad = item.Ad;
-                    B.Memleket = item.Memleket;
-                    App.RealmContext.Add(B);
-                });
+            //MessagingCenter.Subscribe<NewItemPage, Bilgiler>(this, "AddItem", async (obj, item) =>
+            //{
+            //    var newItem = item as Bilgiler;
+            //    Items.Add(newItem);
+            //    //realm.Add(new Bilgiler { ad = item.ad, memleket = item.memleket });
+            //    App.RealmContext.Write(() =>
+            //    {
+            //        var B = new Bilgiler();
+            //        B.Ad = item.Ad;
+            //        B.Memleket = item.Memleket;
+            //        App.RealmContext.Add(B);
+            //    });
 
-            });
+            //});
         }
 
         async Task ExecuteLoadItemsCommand()
         {
-            IsBusy = true;
+            //IsBusy = true;
 
           
-            Items.Clear();
+            //Bilgiler.Clear();
 
 
             
 
-            var items = App.RealmContext.All<Bilgiler>();
+            //var items = App.RealmContext.All<Bilgiler>();
           
-            foreach (var item in items)
-            {
-                Items.Add(item);
-            }
+            //foreach (var item in items)
+            //{
+            //    Bilgiler.Add(item);
+            //}
          
         }
 

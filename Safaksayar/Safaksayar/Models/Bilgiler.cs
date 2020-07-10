@@ -17,6 +17,18 @@ namespace Safaksayar.Models
         public int Kullanilanizin { 
             get;
             set; }
+
+        public DateTimeOffset NihaiTarih
+        {
+            get;
+            set;
+        }
+        public DateTimeOffset SulusTarih
+        {
+            get;
+            set;
+        }
+
         public int Yolizin { get; set; }
         public int Alinanceza { get; set; }
         public int Erkenterhis { get; set; }

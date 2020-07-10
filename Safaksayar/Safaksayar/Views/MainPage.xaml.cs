@@ -24,10 +24,10 @@ namespace Safaksayar.Views
             MasterBehavior = MasterBehavior.Popover;
 
             MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
-            //if (!App.RealmContext.All<Bilgiler>().Any())
-            //{
-            //    this.Navigation.PushModalAsync(new NavigationPage(new BilgiGir()));
-            //}
+            if (!App.RealmContext.All<Bilgiler>().Any())
+            {
+                this.Navigation.PushModalAsync(new NavigationPage(new BilgiGir()));
+            }
         }
 
         public async Task NavigateFromMenu(int id)

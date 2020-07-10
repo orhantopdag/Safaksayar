@@ -38,7 +38,7 @@
             <Entry Text="{Binding ErkenTerhis}" Placeholder="Erken Terhis" Keyboard="Numeric"></Entry>
             <Picker Title="Askerlik yeri" SelectedItem="{Binding Sehir}" ItemsSource="{Binding Iller}"></Picker>
         <Picker Title="Memleket" SelectedItem="{Binding Memleket}" ItemsSource="{Binding Iller}"></Picker>
-        <DatePicker></DatePicker>
+        <DatePicker Date="{Binding Sulus}"></DatePicker>
             <Button Text="Kaydet" Command="{Binding  KaydetCommand}"></Button>
         </StackLayout>
 

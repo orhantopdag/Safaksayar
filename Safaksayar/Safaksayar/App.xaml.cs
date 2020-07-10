@@ -18,7 +18,7 @@ namespace Safaksayar
 
             InitializeComponent();
 
-            var config = new RealmConfiguration() { SchemaVersion = 2 };
+            var config = new RealmConfiguration() { SchemaVersion = 4 };
 
             RealmContext = Realm.GetInstance(config);
            
