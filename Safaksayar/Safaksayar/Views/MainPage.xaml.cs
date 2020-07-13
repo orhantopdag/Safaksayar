@@ -16,6 +16,8 @@ namespace Safaksayar.Views
     public partial class MainPage : MasterDetailPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
+        Bilgiler BilgilerModel { get; set; }
         public MainPage()
 
         {
@@ -28,6 +30,10 @@ namespace Safaksayar.Views
             {
                 this.Navigation.PushModalAsync(new NavigationPage(new BilgiGir()));
             }
+            else
+            {
+                BilgilerModel = App.RealmContext.All<Bilgiler>().FirstOrDefault();
+            }
         }
 
         public async Task NavigateFromMenu(int id)
@@ -36,12 +42,13 @@ namespace Safaksayar.Views
             {
                 switch (id)
                 {
-                    //case (int)MenuItemType.Browse:
-                    //    MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                    //    break;
-                    //case (int)MenuItemType.About:
-                    //    MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                    //    break;
+                    case (int)MenuItemType.Browse:
+                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        break;
+                    case (int)MenuItemType.Updater:
+
+                        MenuPages.Add(id, new NavigationPage(new  BilgiGir(BilgilerModel)));
+                        break;
                 }
             }
 
