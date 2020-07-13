@@ -18,8 +18,8 @@
 
 
 
-        <Picker Title="Askerlik süresi" SelectedItem="{Binding AskerlikSure, Mode=OneWayToSource} "  ItemsSource="{Binding AskerlikSureList}" ItemDisplayBinding="{Binding yazisi}"></Picker>
-        <Picker Title="Toplam izin hakkı"  SelectedItem="{Binding Tih, Mode=OneWayToSource} " ItemsSource="{Binding TihList}" ItemDisplayBinding="{Binding yazisi}"></Picker>
+        <Picker Title="Askerlik süresi"  ItemsSource="{Binding AskerlikSureList}" SelectedItem="{Binding AskerlikSure}"  ItemDisplayBinding="{Binding yazisi}"></Picker>
+        <Picker Title="Toplam izin hakkı"   ItemsSource="{Binding TihList}" SelectedItem="{Binding Tih, Mode=TwoWay}" ItemDisplayBinding="{Binding yazisi}"></Picker>
         <Entry Placeholder="Kullanılan izin"   Keyboard="Numeric" Text="{Binding KullanilanIzin}" >
             <Entry.Behaviors>
                 <behaviours:EntryLengthValidatorBehavior MaxLength="3" />
@@ -27,7 +27,7 @@
                 <behaviours:EntryMaxNumberValidator MaxNumber="98"></behaviours:EntryMaxNumberValidator>
             </Entry.Behaviors>
         </Entry>
-        <Picker Title="Yol izni"  SelectedItem="{Binding Yolizin,Mode=OneWayToSource}" ItemsSource="{Binding YolIzinList}" ItemDisplayBinding="{Binding yazisi}"></Picker>
+        <Picker Title="Yol izni"  ItemsSource="{Binding YolIzinList}" SelectedItem="{Binding Yolizin,Mode=TwoWay}"  ItemDisplayBinding="{Binding yazisi}"></Picker>
             <Entry Text="{Binding AlinanCeza}" Placeholder="Alınan Ceza"  Keyboard="Numeric">
             <Entry.Behaviors>
                 <behaviours:EntryLengthValidatorBehavior MaxLength="3" />
@@ -36,8 +36,8 @@
             </Entry.Behaviors>
         </Entry>
             <Entry Text="{Binding ErkenTerhis}" Placeholder="Erken Terhis" Keyboard="Numeric"></Entry>
-            <Picker Title="Askerlik yeri" SelectedItem="{Binding Sehir}" ItemsSource="{Binding Iller}"></Picker>
-        <Picker Title="Memleket" SelectedItem="{Binding Memleket}" ItemsSource="{Binding Iller}"></Picker>
+        <Picker Title="Askerlik yeri" ItemsSource="{Binding Iller}"  SelectedItem="{Binding Sehir}"></Picker>
+        <Picker Title="Memleket" ItemsSource="{Binding Iller}" SelectedItem="{Binding Memleket, Mode=TwoWay}" ></Picker>
         <DatePicker Date="{Binding Sulus}"></DatePicker>
             <Button Text="Kaydet" Command="{Binding  KaydetCommand}"></Button>
         </StackLayout>

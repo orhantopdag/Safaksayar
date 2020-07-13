@@ -6,8 +6,10 @@ using System.Text;
 
 namespace Safaksayar.Models
 {
-  public  class Bilgiler : RealmObject, INotifyPropertyChanged
+  public  class Bilgiler : RealmObject, INotifyPropertyChanged, ICloneable
     {
+        
+
         public string Ad { 
             get; 
             set; }
@@ -35,7 +37,9 @@ namespace Safaksayar.Models
         public string Askerlikyeri { get; set; }
         public string Memleket { get; set; }
 
-
-
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 }

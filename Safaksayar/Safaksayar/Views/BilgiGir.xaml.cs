@@ -1,4 +1,5 @@
-﻿using Safaksayar.ViewModels;
+﻿using Safaksayar.Models;
+using Safaksayar.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,14 @@ namespace Safaksayar.Views
         {
             InitializeComponent();
             BindingContext =new  BilgiGirViewModel();
+            (BindingContext as BilgiGirViewModel).nav = this.Navigation;
+        }
+
+        public BilgiGir(Bilgiler bg)
+        {
+            InitializeComponent();
+            
+            BindingContext = new BilgiGirViewModel(bg);
             (BindingContext as BilgiGirViewModel).nav = this.Navigation;
         }
     }
