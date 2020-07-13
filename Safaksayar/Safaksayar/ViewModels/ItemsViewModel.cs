@@ -37,15 +37,22 @@ namespace Safaksayar.ViewModels
            
            
             Bilgiler = App.RealmContext.All<Bilgiler>().FirstOrDefault();
+            //using (var transaction = App.RealmContext.BeginWrite())
+            //{
+            //    App.RealmContext.Remove(Bilgiler);
+            //    transaction.Commit();
+            //}
 
-           
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
-                dt = DateTime.Now;
-                TimeText = (gh - dt).ToString();
-                return true;
-            });
+            if (bilgiler!=null)
+            {
+                Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+                    dt = DateTime.Now;
+                    TimeText = (bilgiler.NihaiTarih.DateTime-DateTime.Now ).ToString();
+                    return true;
+                });
+            }
+            
 
             //MessagingCenter.Subscribe<NewItemPage, Bilgiler>(this, "AddItem", async (obj, item) =>
             //{
