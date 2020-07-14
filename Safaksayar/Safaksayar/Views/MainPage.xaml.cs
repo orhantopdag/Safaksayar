@@ -35,7 +35,7 @@ namespace Safaksayar.Views
                 BilgilerModel = App.RealmContext.All<Bilgiler>().FirstOrDefault();
             }
         }
-
+        //public async Task NavigateFromMenu(int id, MenuPage x)
         public async Task NavigateFromMenu(int id)
         {
             if (!MenuPages.ContainsKey(id))
@@ -61,7 +61,7 @@ namespace Safaksayar.Views
                 
                 if (Device.RuntimePlatform == Device.Android)
                     await Task.Delay(100);
-
+                //x.ListViewMenu.SelectedItem = x.ListViewMenu.ItemsSource.OfType<HomeMenuItem>().ToList()[id];
                 IsPresented = false;
             }
         }

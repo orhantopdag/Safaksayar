@@ -7,9 +7,9 @@
              x:Class="Safaksayar.Views.MenuPage"
              Title="Menu">
 
-    <StackLayout VerticalOptions="FillAndExpand">
-        <ListView x:Name="ListViewMenu"
-                    HasUnevenRows="True">
+    <StackLayout VerticalOptions="FillAndExpand" x:FieldModifier="public">
+        <ListView x:Name="ListViewMenu" x:FieldModifier="Public"
+                    HasUnevenRows="True" >
           
             <ListView.ItemTemplate>
                 <DataTemplate>

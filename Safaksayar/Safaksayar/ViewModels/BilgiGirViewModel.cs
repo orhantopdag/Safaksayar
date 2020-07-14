@@ -230,8 +230,8 @@ namespace Safaksayar.ViewModels
             }
 
             MainPage RootPage = Application.Current.MainPage as MainPage;
-            //RootPage.Detail =new ItemsPage();
-          await  RootPage.NavigateFromMenu(0);
+            //RootPage.Detail = new ItemsPage();
+            await  RootPage.NavigateFromMenu(0);
             RootPage.IsPresented = false;
         }
 

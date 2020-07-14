@@ -23,7 +23,7 @@ namespace Safaksayar.Views
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.Updater, Title="Bilgileri Güncelle" }
             };
-
+            
             ListViewMenu.ItemsSource = menuItems;
 
             ListViewMenu.SelectedItem = menuItems[0];
@@ -33,7 +33,9 @@ namespace Safaksayar.Views
                     return;
 
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
+                //await RootPage.NavigateFromMenu(id,this);
                 await RootPage.NavigateFromMenu(id);
+                ListViewMenu.SelectedItem = null;
             };
         }
     }
