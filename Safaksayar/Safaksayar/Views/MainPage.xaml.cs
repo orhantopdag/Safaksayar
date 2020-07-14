@@ -42,6 +42,7 @@ namespace Safaksayar.Views
             {
                 switch (id)
                 {
+                    
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
@@ -57,7 +58,7 @@ namespace Safaksayar.Views
             if (newPage != null && Detail != newPage)
             {
                 Detail = newPage;
-
+                
                 if (Device.RuntimePlatform == Device.Android)
                     await Task.Delay(100);
 
