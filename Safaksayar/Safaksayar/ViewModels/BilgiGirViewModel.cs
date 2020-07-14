@@ -22,17 +22,17 @@ namespace Safaksayar.ViewModels
         {
 
         }
-        public ComboObject(string yazi,int sayi)
+        public ComboObject(string yazi, int sayi)
         {
-         
+
             yazisi = yazi;
             sayisi = sayi;
         }
 
-      
+
     }
 
-  public  class BilgiGirViewModel : BaseViewModel
+    public class BilgiGirViewModel : BaseViewModel
     {
 
         private Bilgiler Bg;
@@ -54,19 +54,21 @@ namespace Safaksayar.ViewModels
         }
 
 
-        public Xamarin.Forms.INavigation  nav;
+        public Xamarin.Forms.INavigation nav;
         public string Sehir
         {
-            
-            get { return Bg.Askerlikyeri;  }
+
+            get { return Bg.Askerlikyeri; }
             set { Bg.Askerlikyeri = value; OnPropertyChanged("Sehir"); }
         }
 
         public DateTime Sulus
         {
             get { return Bg.SulusTarih.DateTime; }
-            set { Bg.SulusTarih = value;OnPropertyChanged();
-                 
+            set
+            {
+                Bg.SulusTarih = value; OnPropertyChanged();
+
             }
         }
         public string Memleket
@@ -80,27 +82,28 @@ namespace Safaksayar.ViewModels
         {
             get
             {
-                if (TihList!=null)
+                if (TihList != null)
                 {
-                  return  TihList.Where(x=>x.sayisi==Bg.Izinhak).FirstOrDefault();
+                    return TihList.Where(x => x.sayisi == Bg.Izinhak).FirstOrDefault();
                 }
                 else
                 {
                     return new ComboObject { sayisi = 1, yazisi = "d" };
                 }
-              
+
             }
-        
-            set {
-                if (value!=null)
+
+            set
+            {
+                if (value != null)
                 {
                     Bg.Izinhak = value.sayisi; OnPropertyChanged("Tih");
                 }
-                
-               
+
+
             }
         }
-        public int  AlinanCeza
+        public int AlinanCeza
         {
             get { return Bg.Alinanceza; }
             set { Bg.Alinanceza = value; OnPropertyChanged(); }
@@ -135,12 +138,13 @@ namespace Safaksayar.ViewModels
             }
 
 
-            set {
-                if (value!=null)
+            set
+            {
+                if (value != null)
                 {
                     Bg.Yolizin = value.sayisi; OnPropertyChanged();
                 }
-               
+
             }
         }
         public ComboObject AskerlikSure
@@ -162,24 +166,24 @@ namespace Safaksayar.ViewModels
 
             set
             {
-                if (value!=null)
+                if (value != null)
                 {
                     Bg.Askerliksure = value.sayisi; OnPropertyChanged();
 
                 }
             }
-               
+
         }
-        public  void OpenMainPage(object obj)
+        public void OpenMainPage(object obj)
         {
             try
             {
-                
+
                 App.RealmContext.Write(() =>
                 {
-                 
-                   Bg.NihaiTarih = Sulus.AddMonths(Bg.Askerliksure).AddDays(Bg.Alinanceza).AddDays(-Bg.Erkenterhis).AddDays(-Bg.Izinhak).AddDays(Bg.Kullanilanizin).AddDays(-Bg.Yolizin);
-                   
+
+                    Bg.NihaiTarih = Sulus.AddMonths(Bg.Askerliksure).AddDays(Bg.Alinanceza).AddDays(-Bg.Erkenterhis).AddDays(-Bg.Izinhak).AddDays(Bg.Kullanilanizin).AddDays(-Bg.Yolizin);
+
                     App.RealmContext.Add(this.Bg);
                 });
 
@@ -187,11 +191,11 @@ namespace Safaksayar.ViewModels
             catch (Exception ex)
             {
 
-             
+
             }
-           
+
             nav.PopModalAsync();
-           
+
         }
 
         public async void OpenMainPageForUpdate(object obj)
@@ -203,7 +207,8 @@ namespace Safaksayar.ViewModels
                 using (var transaction = App.RealmContext.BeginWrite())
                 {
                     var Bilgiler1 = App.RealmContext.All<Bilgiler>().FirstOrDefault();
-                    var config = new MapperConfiguration(cfg => {
+                    var config = new MapperConfiguration(cfg =>
+                    {
                         cfg.CreateMap<Bilgiler, Bilgiler>();
                     });
 
@@ -216,7 +221,7 @@ namespace Safaksayar.ViewModels
                     Bilgiler1.Kullanilanizin = this.KullanilanIzin;
                     Bilgiler1.Memleket = this.Memleket;
                     Bilgiler1.SulusTarih = this.Sulus;
-                    Bilgiler1.NihaiTarih= Sulus.AddMonths(Bg.Askerliksure).AddDays(Bg.Alinanceza).AddDays(-Bg.Erkenterhis).AddDays(-Bg.Izinhak).AddDays(Bg.Kullanilanizin).AddDays(-Bg.Yolizin);
+                    Bilgiler1.NihaiTarih = Sulus.AddMonths(Bg.Askerliksure).AddDays(Bg.Alinanceza).AddDays(-Bg.Erkenterhis).AddDays(-Bg.Izinhak).AddDays(Bg.Kullanilanizin).AddDays(-Bg.Yolizin);
                     transaction.Commit();
                 }
 
@@ -231,7 +236,7 @@ namespace Safaksayar.ViewModels
 
             MainPage RootPage = Application.Current.MainPage as MainPage;
             //RootPage.Detail =new ItemsPage();
-          await  RootPage.NavigateFromMenu(0);
+            await RootPage.NavigateFromMenu(0);
             RootPage.IsPresented = false;
         }
 
@@ -260,10 +265,8 @@ namespace Safaksayar.ViewModels
                 new ComboObject("6 Ay",6),new ComboObject("18 Ay",18),new ComboObject("15 Ay",15),new ComboObject("12 Ay",12),new ComboObject("9 Ay",9),new ComboObject("3 Ay",3),new ComboObject("1 Ay (Bedelli)",1) };
             YolIzinList = new List<ComboObject>(){
                new ComboObject("1 (Terhis)",1),new ComboObject("1+1 (İzin)",2),new ComboObject("2 (Terhis)",2),new ComboObject("2+2 (İzin)",2),new ComboObject("3 (Terhis)",3),new ComboObject("3+3 (İzin)",6) };
-
             Bg.Askerlikyeri = bg.Askerlikyeri;
             this.AlinanCeza = bg.Alinanceza;
-            //this.AskerlikSure = 
             this.Ad = bg.Ad;
             this.Tih = TihList.Where(x => x.sayisi == bg.Izinhak).FirstOrDefault();
             this.Memleket = bg.Memleket;
@@ -274,19 +277,14 @@ namespace Safaksayar.ViewModels
             this.AlinanCeza = bg.Alinanceza;
             this.ErkenTerhis = bg.Erkenterhis;
             this.KullanilanIzin = bg.Kullanilanizin;
-          
             KaydetCommand = new Command(OpenMainPageForUpdate, x => true);
         }
 
-        //public abstract class Bgvm
-        //{
-
-        //}
         public BilgiGirViewModel()
         {
-        
+
             Bg = new Bilgiler();
-            Iller  = new List<string>(){
+            Iller = new List<string>(){
                 "", "Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin",
 "Aydın", "Balıkesir", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale",
 "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Edirne", "Elazığ", "Erzincan", "Erzurum", "Eskişehir",
@@ -306,7 +304,6 @@ namespace Safaksayar.ViewModels
                 new ComboObject("6 Ay",6),new ComboObject("18 Ay",18),new ComboObject("15 Ay",15),new ComboObject("12 Ay",12),new ComboObject("9 Ay",9),new ComboObject("3 Ay",3),new ComboObject("1 Ay (Bedelli)",1) };
             YolIzinList = new List<ComboObject>(){
                new ComboObject("1 (Terhis)",1),new ComboObject("1+1 (İzin)",2),new ComboObject("2 (Terhis)",2),new ComboObject("2+2 (İzin)",2),new ComboObject("3 (Terhis)",3),new ComboObject("3+3 (İzin)",6) };
-
             KaydetCommand = new Command(OpenMainPage, x => true);
         }
     }
