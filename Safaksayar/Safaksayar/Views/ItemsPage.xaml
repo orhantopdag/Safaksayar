@@ -6,13 +6,17 @@
              mc:Ignorable="d"
              x:Class="Safaksayar.Views.ItemsPage"
              Title="{Binding Title}"
+             xmlns:vm="clr-namespace:Safaksayar.ViewModels"
              x:Name="BrowseItemsPage">
 
+    <ContentPage.BindingContext>
+        <vm:ItemsViewModel />
+    </ContentPage.BindingContext>
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>-->
 
-    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
+    <!--<RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
         <CollectionView x:Name="ItemsCollectionView"
                 ItemsSource="{Binding Items}">
             <d:CollectionView.ItemsSource>
@@ -45,6 +49,26 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </RefreshView>
+    </RefreshView>-->
+    <ContentPage.Content>
+        <Grid>
+            <Image  Source="asker.jpg" Aspect="AspectFill"  Opacity="0.3"></Image>
+               <Grid RowDefinitions="2*,3*,1*" >
+                <Grid BackgroundColor="#90ff0000">
+                   
+                    <Label LineBreakMode="NoWrap" FontSize="100" Grid.Row="0" Text="{Binding TimeText,StringFormat='{0:MMMM dd, yyyy}'}"/>
+                </Grid>
+              
+            <Label Grid.Row="1" Text="{Binding TimeTextdate}" ></Label>
+        </Grid>
+
+
+        <!--<Grid  RowDefinitions="2*,3*,1*">
+            <Image Source="asker.jpg" Aspect="AspectFit" />
+
+            
+        </Grid>-->
+    </Grid>
+            </ContentPage.Content>
 </ContentPage>
 

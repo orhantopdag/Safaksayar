@@ -298,12 +298,14 @@ namespace Safaksayar.ViewModels
               new ComboObject(){ yazisi="6 Gün",sayisi=6 },
                 new ComboObject(){ yazisi= "12 Gün",sayisi=12 },
                  new ComboObject(){yazisi="18 Gün",sayisi=18 },
-                new ComboObject("24 Gün",24),
+             
+            new ComboObject("24 Gün",24),
                 new ComboObject("1 Gün(Bedelli)",1) };
             AskerlikSureList = new List<ComboObject>(){
                 new ComboObject("6 Ay",6),new ComboObject("18 Ay",18),new ComboObject("15 Ay",15),new ComboObject("12 Ay",12),new ComboObject("9 Ay",9),new ComboObject("3 Ay",3),new ComboObject("1 Ay (Bedelli)",1) };
             YolIzinList = new List<ComboObject>(){
                new ComboObject("1 (Terhis)",1),new ComboObject("1+1 (İzin)",2),new ComboObject("2 (Terhis)",2),new ComboObject("2+2 (İzin)",2),new ComboObject("3 (Terhis)",3),new ComboObject("3+3 (İzin)",6) };
+            this.Sulus = DateTime.Now;
             KaydetCommand = new Command(OpenMainPage, x => true);
         }
     }

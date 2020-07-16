@@ -23,8 +23,17 @@ namespace Safaksayar.ViewModels
             set { bilgiler = value; OnPropertyChanged();
             }
         }
-      
-
+        private TimeSpan timeTextdate;
+        public TimeSpan TimeTextdate
+        {
+            get { return timeTextdate; }
+            set { timeTextdate = value; OnPropertyChanged(); }
+        }
+        public string TimeText
+        {
+            get { return textDate; }
+            set { textDate = value; OnPropertyChanged(); }
+        }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
@@ -48,7 +57,8 @@ namespace Safaksayar.ViewModels
             {
                 Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                     dt = DateTime.Now;
-                    TimeText = (bilgiler.NihaiTarih.DateTime-DateTime.Now ).ToString();
+                    TimeText = (bilgiler.NihaiTarih.DateTime-DateTime.Now ).ToString(@"dd\.hh\:mm\:ss");
+                    TimeTextdate = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
                     return true;
                 });
             }
@@ -96,11 +106,7 @@ namespace Safaksayar.ViewModels
         DateTime dt;
         DateTime gh = new  DateTime(2020, 1, 12);
       
-        public string TimeText
-        {
-            get { return textDate; }
-            set { textDate = value; OnPropertyChanged(); }
-        }
+        
 
 
 

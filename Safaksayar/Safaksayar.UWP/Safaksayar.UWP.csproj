@@ -130,6 +130,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="asker.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -160,7 +161,7 @@
       <Version>1.5.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.7.0.1080</Version>
+      <Version>4.7.0.1142</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

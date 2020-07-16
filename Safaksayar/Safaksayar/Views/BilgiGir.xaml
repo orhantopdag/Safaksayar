@@ -7,17 +7,19 @@
              mc:Ignorable="d"
              Visual="Material"
                 xmlns:vm="clr-namespace:Safaksayar.ViewModels"
-             x:Class="Safaksayar.Views.BilgiGir">
-
+             x:Class="Safaksayar.Views.BilgiGir"
+          
+             >
+    <!--BackgroundImageSource="asker.jpg"
+             BackgroundColor="AliceBlue"-->
     <ContentPage.BindingContext>
         <vm:BilgiGirViewModel />
     </ContentPage.BindingContext>
-
-    <StackLayout>
-            <Entry Placeholder="Ad Soyad" Text="{Binding Ad}"></Entry>
-
-
-
+    <ContentPage.Content>
+    <Grid>
+        <Image Source="asker.jpg" Aspect="Fill"  Opacity="0.1"/>
+            <StackLayout >
+        <Entry Placeholder="Ad Soyad" Text="{Binding Ad}"></Entry>
         <Picker Title="Askerlik süresi"  ItemsSource="{Binding AskerlikSureList}" SelectedItem="{Binding AskerlikSure}"  ItemDisplayBinding="{Binding yazisi}"></Picker>
         <Picker Title="Toplam izin hakkı"   ItemsSource="{Binding TihList}" SelectedItem="{Binding Tih, Mode=TwoWay}" ItemDisplayBinding="{Binding yazisi}"></Picker>
         <Entry Placeholder="Kullanılan izin"   Keyboard="Numeric" Text="{Binding KullanilanIzin}" >
@@ -37,9 +39,10 @@
         </Entry>
             <Entry Text="{Binding ErkenTerhis}" Placeholder="Erken Terhis" Keyboard="Numeric"></Entry>
         <Picker Title="Askerlik yeri" ItemsSource="{Binding Iller}"  SelectedItem="{Binding Sehir}"></Picker>
-        <Picker Title="Memleket" ItemsSource="{Binding Iller}" SelectedItem="{Binding Memleket, Mode=TwoWay}" ></Picker>
-        <DatePicker Date="{Binding Sulus}"></DatePicker>
-            <Button Text="Kaydet" Command="{Binding  KaydetCommand}"></Button>
+        <Picker Visual="Material" Title="Memleket" ItemsSource="{Binding Iller}" SelectedItem="{Binding Memleket, Mode=TwoWay}" ></Picker>
+        <DatePicker Visual="Material" Date="{Binding Sulus }"></DatePicker>
+            <Button Visual="Material"  Text="Kaydet" Command="{Binding  KaydetCommand}"></Button>
         </StackLayout>
-
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

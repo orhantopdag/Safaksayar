@@ -6,6 +6,8 @@ using Safaksayar.Views;
 using Safaksayar.Models;
 using Realms;
 using System.Linq;
+using System.Globalization;
+using System.Threading;
 
 namespace Safaksayar
 {
@@ -21,9 +23,11 @@ namespace Safaksayar
             var config = new RealmConfiguration() { SchemaVersion = 4 };
 
             RealmContext = Realm.GetInstance(config);
-           
-           
-                MainPage = new MainPage();
+            var userSelectedCulture = new CultureInfo("tr-TR");
+
+            Thread.CurrentThread.CurrentCulture = userSelectedCulture;
+
+            MainPage = new MainPage();
             
            
         }
@@ -38,6 +42,9 @@ namespace Safaksayar
 
         protected override void OnResume()
         {
+            var userSelectedCulture = new CultureInfo("tr-TR");
+
+            Thread.CurrentThread.CurrentCulture = userSelectedCulture;
         }
     }
 }
