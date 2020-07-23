@@ -53,17 +53,58 @@
     <ContentPage.Content>
         <Grid>
             <Image  Source="asker.jpg" Aspect="AspectFill"  Opacity="0.3"></Image>
-               <Grid RowDefinitions="2*,3*,1*" >
+            <Grid RowDefinitions="4*,4*,8*" >
                 <Grid BackgroundColor="#90ff0000">
-                   
-                    <Label LineBreakMode="NoWrap" FontSize="100" Grid.Row="0" Text="{Binding TimeText,StringFormat='{0:MMMM dd, yyyy}'}"/>
+
+                    <!--<Label LineBreakMode="NoWrap" FontSize="100" Grid.Row="0" Text="{Binding TimeText,StringFormat='{0:MMMM dd, yyyy}'}"/>-->
+                    <Label LineBreakMode="NoWrap" FontSize="100" Grid.Row="0" Text="{Binding TimeText}"/>
                 </Grid>
-              
-            <Label Grid.Row="1" Text="{Binding TimeTextdate}" ></Label>
-        </Grid>
+                <!--<Label Grid.Row="1" Text="{Binding TimeTextdate}" ></Label>-->
+                <Grid Grid.Row="1" RowDefinitions="1*,1*,1*,1*" ColumnDefinitions="1*,1*">
+                    
+                    <Label Grid.Row="0" Grid.Column="0" Text="Sülüs Tarihi:"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="Terhis Tarihi:"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Askerlik yeri:"/>
+                    <Label Grid.Row="3" Grid.Column="0" Text="Memleket:"/>
+
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding SulusTarihi, StringFormat='{0:dddd dd.MM.yyyy}'}"/>
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding TerhisTarihi,StringFormat='{0:dddd dd.MM.yyyy}'}"/>
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding AskerlikYer}"/>
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding Memleket}"/>
 
 
-        <!--<Grid  RowDefinitions="2*,3*,1*">
+
+                    <!--<Path Stroke="Black" StrokeThickness="1" >
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathGeometry.Figures>
+                                    <PathFigure StartPoint="100,100" >
+                                        <PathFigure.Segments>
+
+                                            <ArcSegment Size="80,80" RotationAngle="90" IsLargeArc="False" SweepDirection="Clockwise" Point="100,100"/>
+                                            -->
+                    <!--<LineSegment Point="10,10"></LineSegment>-->
+                    <!--
+                                        </PathFigure.Segments>
+                                    </PathFigure >
+
+                                    <PathFigure StartPoint=" 300,150">
+                                        <PathFigure.Segments>
+                                            <ArcSegment Size="50,50" RotationAngle="0" IsLargeArc="False" SweepDirection="Clockwise" Point="300,150"></ArcSegment>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                    <PathFigure StartPoint="150,100">
+                                        <ArcSegment Size="80,80" IsLargeArc="True" SweepDirection="Clockwise" Point="150,100" />
+                                    </PathFigure>
+                                </PathGeometry.Figures>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                </Grid>-->
+                </Grid>
+            </Grid>
+
+            <!--<Grid  RowDefinitions="2*,3*,1*">
             <Image Source="asker.jpg" Aspect="AspectFit" />
 
             

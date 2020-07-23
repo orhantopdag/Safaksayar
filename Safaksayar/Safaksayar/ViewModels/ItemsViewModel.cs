@@ -29,6 +29,32 @@ namespace Safaksayar.ViewModels
             get { return timeTextdate; }
             set { timeTextdate = value; OnPropertyChanged(); }
         }
+
+
+        public DateTime SulusTarihi
+        {
+            get { return Bilgiler.SulusTarih.DateTime; }
+            set { Bilgiler.SulusTarih = DateTime.SpecifyKind(value, DateTimeKind.Local); OnPropertyChanged(); }
+        }
+
+        public DateTime TerhisTarihi
+        {
+            get { return Bilgiler.NihaiTarih.DateTime; }
+            set { Bilgiler.NihaiTarih = DateTime.SpecifyKind(value, DateTimeKind.Local); OnPropertyChanged(); }
+        }
+        public string Memleket
+        {
+            get { return Bilgiler.Memleket; }
+            set { Bilgiler.Memleket = value; OnPropertyChanged(); }
+        }
+
+        public string AskerlikYer
+        {
+            get { return Bilgiler.Askerlikyeri; }
+            set { Bilgiler.Askerlikyeri = value; OnPropertyChanged(); }
+        }
+
+
         public string TimeText
         {
             get { return textDate; }
@@ -57,7 +83,8 @@ namespace Safaksayar.ViewModels
             {
                 Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                     dt = DateTime.Now;
-                    TimeText = (bilgiler.NihaiTarih.DateTime-DateTime.Now ).ToString(@"dd\.hh\:mm\:ss");
+                    //TimeText = (bilgiler.NihaiTarih.DateTime-DateTime.Now ).ToString(@"dd\.hh\:mm\:ss");
+                    TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
                     TimeTextdate = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
                     return true;
                 });

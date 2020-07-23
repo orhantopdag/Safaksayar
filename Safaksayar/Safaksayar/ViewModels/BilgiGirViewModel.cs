@@ -28,8 +28,6 @@ namespace Safaksayar.ViewModels
             yazisi = yazi;
             sayisi = sayi;
         }
-
-
     }
 
     public class BilgiGirViewModel : BaseViewModel
@@ -67,7 +65,7 @@ namespace Safaksayar.ViewModels
             get { return Bg.SulusTarih.DateTime; }
             set
             {
-                Bg.SulusTarih = value; OnPropertyChanged();
+                Bg.SulusTarih = value.ToLocalTime(); OnPropertyChanged();
 
             }
         }
@@ -136,8 +134,6 @@ namespace Safaksayar.ViewModels
                 }
 
             }
-
-
             set
             {
                 if (value != null)
@@ -236,7 +232,7 @@ namespace Safaksayar.ViewModels
 
             MainPage RootPage = Application.Current.MainPage as MainPage;
             //RootPage.Detail = new ItemsPage();
-            await  RootPage.NavigateFromMenu(0);
+            await RootPage.NavigateFromMenu(0);
             RootPage.IsPresented = false;
         }
 
@@ -298,7 +294,7 @@ namespace Safaksayar.ViewModels
               new ComboObject(){ yazisi="6 Gün",sayisi=6 },
                 new ComboObject(){ yazisi= "12 Gün",sayisi=12 },
                  new ComboObject(){yazisi="18 Gün",sayisi=18 },
-             
+
             new ComboObject("24 Gün",24),
                 new ComboObject("1 Gün(Bedelli)",1) };
             AskerlikSureList = new List<ComboObject>(){
