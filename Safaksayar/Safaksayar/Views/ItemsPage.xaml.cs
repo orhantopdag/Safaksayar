@@ -22,6 +22,7 @@ namespace Safaksayar.Views
 
         public ItemsPage()
         {
+            
             InitializeComponent();
 
             BindingContext = viewModel = new ItemsViewModel();
@@ -33,6 +34,7 @@ namespace Safaksayar.Views
             var item = (Bilgiler)layout.BindingContext;
             //await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
         }
+
 
 
 

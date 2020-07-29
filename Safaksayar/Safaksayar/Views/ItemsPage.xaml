@@ -7,109 +7,64 @@
              x:Class="Safaksayar.Views.ItemsPage"
              Title="{Binding Title}"
              xmlns:vm="clr-namespace:Safaksayar.ViewModels"
+               xmlns:local="clr-namespace:Safaksayar.CustomControls"
              x:Name="BrowseItemsPage">
 
     <ContentPage.BindingContext>
         <vm:ItemsViewModel />
     </ContentPage.BindingContext>
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
-    </ContentPage.ToolbarItems>-->
-
-    <!--<RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
-        <CollectionView x:Name="ItemsCollectionView"
-                ItemsSource="{Binding Items}">
-            <d:CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>First Item</x:String>
-                    <x:String>Second Item</x:String>
-                    <x:String>Third Item</x:String>
-                    <x:String>Fourth Item</x:String>
-                    <x:String>Fifth Item</x:String>
-                    <x:String>Sixth Item</x:String>
-                </x:Array>
-            </d:CollectionView.ItemsSource>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="{Binding ad}" 
-                                d:Text="{Binding .}"
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                        <Label Text="{Binding memleket}" 
-                                d:Text="Item descripton"
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </RefreshView>-->
+    
     <ContentPage.Content>
         <Grid>
-            <Image  Source="asker.jpg" Aspect="AspectFill"  Opacity="0.3"></Image>
             <Grid RowDefinitions="4*,4*,8*" >
                 <Grid BackgroundColor="#90ff0000">
-
-                    <!--<Label LineBreakMode="NoWrap" FontSize="100" Grid.Row="0" Text="{Binding TimeText,StringFormat='{0:MMMM dd, yyyy}'}"/>-->
+                    <Label LineBreakMode="NoWrap" FontSize="100" Grid.Row="0" Text="{Binding TimeText,StringFormat='{0:MMMM dd, yyyy}'}"/>
                     <Label LineBreakMode="NoWrap" FontSize="100" Grid.Row="0" Text="{Binding TimeText}"/>
                 </Grid>
-                <!--<Label Grid.Row="1" Text="{Binding TimeTextdate}" ></Label>-->
-                <Grid Grid.Row="1" RowDefinitions="1*,1*,1*,1*" ColumnDefinitions="1*,1*">
-                    
+                <Grid Grid.Row="1" ColumnDefinitions="1*,1*">
+                    <Grid Grid.Column="0">
+                        <StackLayout
+        	Spacing = "5"
+	        Padding = "5">
+                            <!--<Slider Maximum="150" Minimum="50" Value="{Binding SpeedF, Mode=TwoWay}"/>-->
+                            <!--IndeterminateSpeed = "{Binding Speed}"
+                        Indeterminate = "{Binding IsIndeterminate}"-->
+                            <local:CircularProgress	     	
+	         	  WidthRequest="130" 
+	         	HeightRequest="130"
+	         	Progress = "{Binding Progress}"
+	         	ProgressColor = "{Binding ProgressColor}"
+	         	ProgressBackgroundColor = "{Binding ProgressBackgroundColor}"
+	         	/>
+                        </StackLayout>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackLayout Spacing = "5" Padding ="5">
+                            <!--<Slider Maximum="150" Minimum="50" Value="{Binding SpeedF, Mode=TwoWay}"/>-->
+                            <!--IndeterminateSpeed = "{Binding Speed}"
+                        Indeterminate = "{Binding IsIndeterminate}"-->
+                            <local:CircularProgress
+	      		         	  WidthRequest="130" 
+	         	HeightRequest="130"
+	         	Progress = "{Binding KalanProgress}"
+	         	ProgressColor="Red"
+	         	ProgressBackgroundColor = "{Binding ProgressBackgroundColor}"/>
+                        </StackLayout>
+
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2" RowDefinitions="1*,1*,1*,1*" ColumnDefinitions="1*,1*">
                     <Label Grid.Row="0" Grid.Column="0" Text="Sülüs Tarihi:"/>
                     <Label Grid.Row="1" Grid.Column="0" Text="Terhis Tarihi:"/>
                     <Label Grid.Row="2" Grid.Column="0" Text="Askerlik yeri:"/>
                     <Label Grid.Row="3" Grid.Column="0" Text="Memleket:"/>
-
                     <Label Grid.Row="0" Grid.Column="1" Text="{Binding SulusTarihi, StringFormat='{0:dddd dd.MM.yyyy}'}"/>
                     <Label Grid.Row="1" Grid.Column="1" Text="{Binding TerhisTarihi,StringFormat='{0:dddd dd.MM.yyyy}'}"/>
                     <Label Grid.Row="2" Grid.Column="1" Text="{Binding AskerlikYer}"/>
                     <Label Grid.Row="3" Grid.Column="1" Text="{Binding Memleket}"/>
-
-
-
-                    <!--<Path Stroke="Black" StrokeThickness="1" >
-                        <Path.Data>
-                            <PathGeometry>
-                                <PathGeometry.Figures>
-                                    <PathFigure StartPoint="100,100" >
-                                        <PathFigure.Segments>
-
-                                            <ArcSegment Size="80,80" RotationAngle="90" IsLargeArc="False" SweepDirection="Clockwise" Point="100,100"/>
-                                            -->
-                    <!--<LineSegment Point="10,10"></LineSegment>-->
-                    <!--
-                                        </PathFigure.Segments>
-                                    </PathFigure >
-
-                                    <PathFigure StartPoint=" 300,150">
-                                        <PathFigure.Segments>
-                                            <ArcSegment Size="50,50" RotationAngle="0" IsLargeArc="False" SweepDirection="Clockwise" Point="300,150"></ArcSegment>
-                                        </PathFigure.Segments>
-                                    </PathFigure>
-                                    <PathFigure StartPoint="150,100">
-                                        <ArcSegment Size="80,80" IsLargeArc="True" SweepDirection="Clockwise" Point="150,100" />
-                                    </PathFigure>
-                                </PathGeometry.Figures>
-                            </PathGeometry>
-                        </Path.Data>
-                    </Path>
-                </Grid>-->
                 </Grid>
             </Grid>
-
-            <!--<Grid  RowDefinitions="2*,3*,1*">
-            <Image Source="asker.jpg" Aspect="AspectFit" />
-
-            
-        </Grid>-->
-    </Grid>
+        </Grid>
             </ContentPage.Content>
 </ContentPage>
 
