@@ -154,25 +154,26 @@ namespace Safaksayar.ViewModels
             set { bilgiler = value; OnPropertyChanged();
             }
         }
-        private TimeSpan timeTextdate;
-        public TimeSpan TimeTextdate
+        private TimeSpan kalanZaman;
+        public TimeSpan KalanZaman
         {
-            get { return timeTextdate; }
-            set { timeTextdate = value; OnPropertyChanged(); }
+            get { return kalanZaman; }
+            set { kalanZaman = value; OnPropertyChanged("KalanZaman"); }
         }
 
+        private TimeSpan gecenZaman;
+        public TimeSpan GecenZaman
+        {
+            get { return gecenZaman; }
+            set { gecenZaman = value; OnPropertyChanged("GecenZaman"); }
+        }
 
         public DateTime SulusTarihi
         {
             get { return Bilgiler.SulusTarih.DateTime; }
             set { Bilgiler.SulusTarih = DateTime.SpecifyKind(value, DateTimeKind.Local); OnPropertyChanged(); }
         }
-        private Point startPointer;
-        public Point StartPointer
-        {
-            get { return startPointer; }
-            set { startPointer = value; OnPropertyChanged("StartPointer"); }
-        }
+      
         private bool isTrue;
 
         public bool IsTrue
@@ -212,18 +213,19 @@ namespace Safaksayar.ViewModels
             Bilgiler = App.RealmContext.All<Bilgiler>().FirstOrDefault();        
             Progress= ((float)(DateTime.Now - bilgiler.SulusTarih).Days / (float)(bilgiler.NihaiTarih - bilgiler.SulusTarih).Days) *100;
             KalanProgress = 100 - progress;
-            StartPointer = new Point(50, 800);
-            
+          
+            TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
+            KalanZaman = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
+            GecenZaman = (DateTime.Now - bilgiler.SulusTarih.DateTime);
+
             if (bilgiler!=null)
             {
-                Device.StartTimer(TimeSpan.FromSeconds(1), () => {
-                    dt = DateTime.Now;
+                Device.StartTimer(TimeSpan.FromHours(1), () => {
+                    
                     //TimeText = (bilgiler.NihaiTarih.DateTime-DateTime.Now ).ToString(@"dd\.hh\:mm\:ss");
                     TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
-                    TimeTextdate = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
-                    var x = startPointer.X;
-                    x++;
-                    
+                    KalanZaman = (bilgiler.NihaiTarih.DateTime- DateTime.Now);
+                    GecenZaman = (DateTime.Now - bilgiler.SulusTarih.DateTime);                                       
                     return true;
                 });
             }
@@ -247,7 +249,5 @@ namespace Safaksayar.ViewModels
 
 
         private string textDate;
-        DateTime dt;
-        DateTime gh = new  DateTime(2020, 1, 12);
     }
 }

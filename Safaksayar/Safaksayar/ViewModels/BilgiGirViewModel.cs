@@ -203,10 +203,7 @@ namespace Safaksayar.ViewModels
                 using (var transaction = App.RealmContext.BeginWrite())
                 {
                     var Bilgiler1 = App.RealmContext.All<Bilgiler>().FirstOrDefault();
-                    var config = new MapperConfiguration(cfg =>
-                    {
-                        cfg.CreateMap<Bilgiler, Bilgiler>();
-                    });
+                  
 
                     Bilgiler1.Ad = this.Ad;
                     Bilgiler1.Alinanceza = this.AlinanCeza;
