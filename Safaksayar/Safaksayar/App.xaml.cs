@@ -17,7 +17,7 @@ namespace Safaksayar
         public static Realm RealmContext;
         public App()
         {
-
+            Device.SetFlags(new string[] { "Shapes_Experimental" });
             InitializeComponent();
 
             var config = new RealmConfiguration() { SchemaVersion = 4 };
