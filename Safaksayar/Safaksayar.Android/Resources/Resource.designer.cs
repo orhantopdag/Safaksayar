@@ -130,7 +130,7 @@ namespace Safaksayar.Droid
 			global::com.refractored.monodroidtoolkit.Resource.Styleable.ProgressButton_unpinnedDrawable = global::Safaksayar.Droid.Resource.Styleable.ProgressButton_unpinnedDrawable;
 			global::com.refractored.monodroidtoolkit.Resource.Styleable.Theme = global::Safaksayar.Droid.Resource.Styleable.Theme;
 			global::com.refractored.monodroidtoolkit.Resource.Styleable.Theme_circularProgressBarStyle = global::Safaksayar.Droid.Resource.Styleable.Theme_circularProgressBarStyle;
-			global::Microcharts.Droid.Resource.String.library_name = global::Safaksayar.Droid.Resource.String.library_name;
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::Safaksayar.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::Safaksayar.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::Safaksayar.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::Safaksayar.Droid.Resource.Attribute.font;
@@ -8579,6 +8579,9 @@ namespace Safaksayar.Droid
 			// aapt resource value: 0x7F070062
 			public const int design_snackbar_background = 2131165282;
 			
+			// aapt resource value: 0x7F070066
+			public const int Icon = 2131165286;
+			
 			// aapt resource value: 0x7F070063
 			public const int ic_mtrl_chip_checked_black = 2131165283;
 			
@@ -8588,74 +8591,77 @@ namespace Safaksayar.Droid
 			// aapt resource value: 0x7F070065
 			public const int ic_mtrl_chip_close_circle = 2131165285;
 			
-			// aapt resource value: 0x7F070066
-			public const int mtrl_snackbar_background = 2131165286;
-			
 			// aapt resource value: 0x7F070067
-			public const int mtrl_tabs_default_indicator = 2131165287;
+			public const int mtrl_snackbar_background = 2131165287;
 			
 			// aapt resource value: 0x7F070068
-			public const int navigation_empty_icon = 2131165288;
+			public const int mtrl_tabs_default_indicator = 2131165288;
 			
 			// aapt resource value: 0x7F070069
-			public const int notification_action_background = 2131165289;
+			public const int navigation_empty_icon = 2131165289;
 			
 			// aapt resource value: 0x7F07006A
-			public const int notification_bg = 2131165290;
+			public const int notification_action_background = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int notification_bg_low = 2131165291;
+			public const int notification_bg = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int notification_bg_low_normal = 2131165292;
+			public const int notification_bg_low = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
-			public const int notification_bg_low_pressed = 2131165293;
+			public const int notification_bg_low_normal = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int notification_bg_normal = 2131165294;
+			public const int notification_bg_low_pressed = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int notification_bg_normal_pressed = 2131165295;
+			public const int notification_bg_normal = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int notification_icon_background = 2131165296;
+			public const int notification_bg_normal_pressed = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int notification_template_icon_bg = 2131165297;
+			public const int notification_icon_background = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int notification_template_icon_low_bg = 2131165298;
+			public const int notification_template_icon_bg = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int notification_tile_bg = 2131165299;
+			public const int notification_template_icon_low_bg = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int notify_panel_notification_icon_bg = 2131165300;
+			public const int notification_tile_bg = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int pin_progress_pinned = 2131165301;
+			public const int notify_panel_notification_icon_bg = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int pin_progress_shadow = 2131165302;
+			public const int pin_progress_pinned = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int pin_progress_unpinned = 2131165303;
+			public const int pin_progress_shadow = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int scrubber_control_normal_holo = 2131165304;
+			public const int pin_progress_unpinned = 2131165304;
 			
 			// aapt resource value: 0x7F070079
-			public const int scrubber_control_pressed_holo = 2131165305;
+			public const int plugin_lc_smallicon = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
-			public const int tooltip_frame_dark = 2131165306;
+			public const int scrubber_control_normal_holo = 2131165306;
 			
 			// aapt resource value: 0x7F07007B
-			public const int tooltip_frame_light = 2131165307;
+			public const int scrubber_control_pressed_holo = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int xamarin_logo = 2131165308;
+			public const int tooltip_frame_dark = 2131165308;
+			
+			// aapt resource value: 0x7F07007D
+			public const int tooltip_frame_light = 2131165309;
+			
+			// aapt resource value: 0x7F07007E
+			public const int xamarin_logo = 2131165310;
 			
 			static Drawable()
 			{
@@ -9783,31 +9789,28 @@ namespace Safaksayar.Droid
 			public const int hide_bottom_view_on_scroll_behavior = 2131558445;
 			
 			// aapt resource value: 0x7F0D002E
-			public const int library_name = 2131558446;
+			public const int mtrl_chip_close_icon_content_description = 2131558446;
 			
 			// aapt resource value: 0x7F0D002F
-			public const int mtrl_chip_close_icon_content_description = 2131558447;
+			public const int password_toggle_content_description = 2131558447;
 			
 			// aapt resource value: 0x7F0D0030
-			public const int password_toggle_content_description = 2131558448;
+			public const int path_password_eye = 2131558448;
 			
 			// aapt resource value: 0x7F0D0031
-			public const int path_password_eye = 2131558449;
+			public const int path_password_eye_mask_strike_through = 2131558449;
 			
 			// aapt resource value: 0x7F0D0032
-			public const int path_password_eye_mask_strike_through = 2131558450;
+			public const int path_password_eye_mask_visible = 2131558450;
 			
 			// aapt resource value: 0x7F0D0033
-			public const int path_password_eye_mask_visible = 2131558451;
+			public const int path_password_strike_through = 2131558451;
 			
 			// aapt resource value: 0x7F0D0034
-			public const int path_password_strike_through = 2131558452;
+			public const int search_menu_title = 2131558452;
 			
 			// aapt resource value: 0x7F0D0035
-			public const int search_menu_title = 2131558453;
-			
-			// aapt resource value: 0x7F0D0036
-			public const int status_bar_notification_info_overflow = 2131558454;
+			public const int status_bar_notification_info_overflow = 2131558453;
 			
 			static String()
 			{

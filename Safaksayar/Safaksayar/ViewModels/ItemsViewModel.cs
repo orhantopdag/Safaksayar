@@ -2,15 +2,14 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
 using Safaksayar.Models;
 using Safaksayar.Views;
 using System.Threading;
 using Realms;
 using System.Linq;
-using SkiaSharp;
+using Plugin.LocalNotifications;
+
 
 namespace Safaksayar.ViewModels
 {
@@ -213,6 +212,7 @@ namespace Safaksayar.ViewModels
             Bilgiler = App.RealmContext.All<Bilgiler>().FirstOrDefault();        
             Progress= ((float)(DateTime.Now - bilgiler.SulusTarih).Days / (float)(bilgiler.NihaiTarih - bilgiler.SulusTarih).Days) *100;
             KalanProgress = 100 - progress;
+            CrossLocalNotifications.Current.Show("sfs","asd");
           
             TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
             KalanZaman = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
