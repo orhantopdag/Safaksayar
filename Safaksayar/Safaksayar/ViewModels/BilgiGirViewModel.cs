@@ -146,6 +146,9 @@ namespace Safaksayar.ViewModels
         public ComboObject AskerlikSure
         {
 
+
+
+
             get
             {
                 if (AskerlikSureList != null)

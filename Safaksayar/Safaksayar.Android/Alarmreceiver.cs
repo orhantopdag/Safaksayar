@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -17,8 +16,8 @@ namespace Safaksayar.Droid
     {
         public override void OnReceive(Context context, Intent intent)
         {
-            var title = "Hello world!";
-            var message = "Checkout this notification";
+            var title = "Safak Sayar";
+            var message = "Şafağın atmasına az kaldı";
 
             Intent backIntent = new Intent(context, typeof(MainActivity));
             backIntent.SetFlags(ActivityFlags.NewTask);

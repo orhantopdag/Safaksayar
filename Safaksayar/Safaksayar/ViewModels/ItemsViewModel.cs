@@ -212,7 +212,7 @@ namespace Safaksayar.ViewModels
             Bilgiler = App.RealmContext.All<Bilgiler>().FirstOrDefault();        
             Progress= ((float)(DateTime.Now - bilgiler.SulusTarih).Days / (float)(bilgiler.NihaiTarih - bilgiler.SulusTarih).Days) *100;
             KalanProgress = 100 - progress;
-            CrossLocalNotifications.Current.Show("sfs","asd");
+            //CrossLocalNotifications.Current.Show("sfs","asd");
           
             TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
             KalanZaman = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
