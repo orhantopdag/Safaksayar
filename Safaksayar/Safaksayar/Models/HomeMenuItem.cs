@@ -7,7 +7,8 @@ namespace Safaksayar.Models
     public enum MenuItemType
     {
         Browse,
-        Updater
+        Updater,
+        fikra
     }
     public class HomeMenuItem
     {

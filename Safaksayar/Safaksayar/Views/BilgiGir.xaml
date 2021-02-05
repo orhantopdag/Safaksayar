@@ -16,9 +16,10 @@
         <vm:BilgiGirViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
+        <ScrollView>
     <Grid>
-        <Image Source="asker.jpg" Aspect="Fill"  Opacity="0.1"/>
-            <StackLayout >
+        <Image Source="asker.jpg"  Aspect="AspectFill"  Opacity="0.1"/>
+            <StackLayout>
         <Entry Placeholder="Ad Soyad" Text="{Binding Ad}"></Entry>
         <Picker Title="Askerlik süresi"  ItemsSource="{Binding AskerlikSureList}" SelectedItem="{Binding AskerlikSure}"  ItemDisplayBinding="{Binding yazisi}"></Picker>
         <Picker Title="Toplam izin hakkı"   ItemsSource="{Binding TihList}" SelectedItem="{Binding Tih, Mode=TwoWay}" ItemDisplayBinding="{Binding yazisi}"></Picker>
@@ -44,5 +45,6 @@
             <Button Visual="Material"  Text="Kaydet" Command="{Binding  KaydetCommand}"></Button>
         </StackLayout>
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

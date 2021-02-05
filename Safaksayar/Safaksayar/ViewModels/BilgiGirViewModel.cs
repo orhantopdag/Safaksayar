@@ -180,8 +180,8 @@ namespace Safaksayar.ViewModels
 
                 App.RealmContext.Write(() =>
                 {
-
-                    Bg.NihaiTarih = Sulus.AddMonths(Bg.Askerliksure).AddDays(Bg.Alinanceza).AddDays(-Bg.Erkenterhis).AddDays(-Bg.Izinhak).AddDays(Bg.Kullanilanizin).AddDays(-Bg.Yolizin);
+                    Bg.SulusTarih = DateTime.SpecifyKind(Sulus,DateTimeKind.Utc);
+                    Bg.NihaiTarih = DateTime.SpecifyKind(Sulus.AddMonths(Bg.Askerliksure).AddDays(Bg.Alinanceza).AddDays(-Bg.Erkenterhis).AddDays(-Bg.Izinhak).AddDays(Bg.Kullanilanizin).AddDays(-Bg.Yolizin),DateTimeKind.Utc);
 
                     App.RealmContext.Add(this.Bg);
                 });
@@ -234,6 +234,7 @@ namespace Safaksayar.ViewModels
             //RootPage.Detail = new ItemsPage();
             await RootPage.NavigateFromMenu(0);
             RootPage.IsPresented = false;
+
         }
 
 

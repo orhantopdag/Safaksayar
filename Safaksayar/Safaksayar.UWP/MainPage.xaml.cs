@@ -24,8 +24,8 @@ namespace Safaksayar.UWP
     {
         public MainPage()
         {
-            this.InitializeComponent();
-            LoadApplication(new Safaksayar.App());
+            //this.InitializeComponent();
+            //LoadApplication(new Safaksayar.App());
         }
     }
 }

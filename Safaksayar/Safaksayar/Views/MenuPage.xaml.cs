@@ -21,7 +21,8 @@ namespace Safaksayar.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.Updater, Title="Bilgileri Güncelle" }
+                new HomeMenuItem {Id = MenuItemType.Updater, Title="Bilgileri Güncelle" },
+                 new HomeMenuItem {Id = MenuItemType.fikra, Title="Fıkralar" }
             };
             
             ListViewMenu.ItemsSource = menuItems;

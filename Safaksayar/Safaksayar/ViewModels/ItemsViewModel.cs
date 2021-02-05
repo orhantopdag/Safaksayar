@@ -167,10 +167,11 @@ namespace Safaksayar.ViewModels
             set { gecenZaman = value; OnPropertyChanged("GecenZaman"); }
         }
 
+        private DateTime sulustarihi;
         public DateTime SulusTarihi
         {
-            get { return Bilgiler.SulusTarih.DateTime; }
-            set { Bilgiler.SulusTarih = DateTime.SpecifyKind(value, DateTimeKind.Local); OnPropertyChanged(); }
+            get { return sulustarihi;  }
+            set { sulustarihi = DateTime.SpecifyKind(value, DateTimeKind.Local); OnPropertyChanged(); }
         }
       
         private bool isTrue;
@@ -181,21 +182,23 @@ namespace Safaksayar.ViewModels
             set { isTrue = value; OnPropertyChanged("IsTrue"); }
         }
 
+        private DateTime terhistarih;
         public DateTime TerhisTarihi
         {
-            get { return Bilgiler.NihaiTarih.DateTime; }
-            set { Bilgiler.NihaiTarih = DateTime.SpecifyKind(value, DateTimeKind.Local); OnPropertyChanged(); }
+            get { return terhistarih;  }
+            set { terhistarih = DateTime.SpecifyKind(value, DateTimeKind.Local); OnPropertyChanged(); }
         }
+        private string memleket;
         public string Memleket
         {
-            get { return Bilgiler.Memleket; }
-            set { Bilgiler.Memleket = value; OnPropertyChanged(); }
+            get { return memleket; }
+            set {memleket = value; OnPropertyChanged(); }
         }
-
+        private string askerlikyer;
         public string AskerlikYer
         {
-            get { return Bilgiler.Askerlikyeri; }
-            set { Bilgiler.Askerlikyeri = value; OnPropertyChanged(); }
+            get { return askerlikyer; }
+            set { askerlikyer = value; OnPropertyChanged(); }
         }
 
 
@@ -204,31 +207,42 @@ namespace Safaksayar.ViewModels
             get { return textDate; }
             set { textDate = value; OnPropertyChanged(); }
         }
+
+        public void LoadViewmodel()
+        {
+            Bilgiler = App.RealmContext.All<Bilgiler>().FirstOrDefault();
+            Progress = ((float)(DateTime.Now - bilgiler.SulusTarih).Days / (float)(bilgiler.NihaiTarih - bilgiler.SulusTarih).Days) * 100;
+            KalanProgress = 100 - progress;
+            //CrossLocalNotifications.Current.Show("sfs","asd");
+            Memleket=Bilgiler.Memleket;
+            AskerlikYer =  Bilgiler.Askerlikyeri;
+            TerhisTarihi = Bilgiler.NihaiTarih.DateTime;
+            SulusTarihi = Bilgiler.SulusTarih.DateTime;
+            TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
+            KalanZaman = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
+            GecenZaman = (DateTime.Now - bilgiler.SulusTarih.DateTime);
+
+            if (bilgiler != null)
+            {
+                Device.StartTimer(TimeSpan.FromHours(1), () => {
+
+                    //TimeText = (bilgiler.NihaiTarih.DateTime-DateTime.Now ).ToString(@"dd\.hh\:mm\:ss");
+                    TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
+                    KalanZaman = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
+                    GecenZaman = (DateTime.Now - bilgiler.SulusTarih.DateTime);
+                    return true;
+                });
+            }
+
+        }
+
+
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Safaksayar lite";
-            Bilgiler = App.RealmContext.All<Bilgiler>().FirstOrDefault();        
-            Progress= ((float)(DateTime.Now - bilgiler.SulusTarih).Days / (float)(bilgiler.NihaiTarih - bilgiler.SulusTarih).Days) *100;
-            KalanProgress = 100 - progress;
-            //CrossLocalNotifications.Current.Show("sfs","asd");
-          
-            TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
-            KalanZaman = (bilgiler.NihaiTarih.DateTime - DateTime.Now);
-            GecenZaman = (DateTime.Now - bilgiler.SulusTarih.DateTime);
-
-            if (bilgiler!=null)
-            {
-                Device.StartTimer(TimeSpan.FromHours(1), () => {
-                    
-                    //TimeText = (bilgiler.NihaiTarih.DateTime-DateTime.Now ).ToString(@"dd\.hh\:mm\:ss");
-                    TimeText = (bilgiler.NihaiTarih.DateTime - DateTime.Now).ToString(@"dd");
-                    KalanZaman = (bilgiler.NihaiTarih.DateTime- DateTime.Now);
-                    GecenZaman = (DateTime.Now - bilgiler.SulusTarih.DateTime);                                       
-                    return true;
-                });
-            }
+            
             
 
             //MessagingCenter.Subscribe<NewItemPage, Bilgiler>(this, "AddItem", async (obj, item) =>

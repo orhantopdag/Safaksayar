@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Safaksayar.Views.FikralarPage">
+    <CollectionView 
+            ItemsSource="{Binding Fikralar}"
+            >
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="1*"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"  Text="{Binding FikraAdi}"/> 
+                   <Label  Grid.Row="1"   Text="{Binding FikraIcerigi }"  />
+             
+                   </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+    <!--ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement"-->
+        <!--Built in Cells-->
+    <!--<ListView.ItemTemplate>
+        <DataTemplate>
+            <TextCell Text="{Binding .}" />
+        </DataTemplate>
+    </ListView.ItemTemplate>-->
+    
+    <!--Custom View Cells-->
+
+        <!--<ListView.ItemTemplate>
+      <DataTemplate>
+    
+                    <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="1*"></RowDefinition>
+                       
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"  Text="{Binding FikraAdi}" 
+                   Style="{DynamicResource ListItemTextStyle}" />-->
+                    <!--<Label  Grid.Row="1"   Text="{Binding FikraIcerigi }"  />
+                    <Entry  Grid.Row="2"   Text="{Binding FikraIcerigi }"  />-->
+                <!--</Grid>
+                
+      </DataTemplate>
+    </ListView.ItemTemplate>-->
+    
+  <!--</ListView>-->
+</ContentPage>

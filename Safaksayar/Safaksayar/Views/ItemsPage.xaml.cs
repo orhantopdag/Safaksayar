@@ -35,15 +35,18 @@ namespace Safaksayar.Views
             //await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
         }
 
+        protected override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+           viewModel.LoadViewmodel();
+        }
 
-
-
+ 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            //if (viewModel.Items.Count == 0)
-            //    viewModel.IsBusy = true;
+        viewModel.LoadViewmodel();
         }
     }
 }
